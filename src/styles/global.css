@@ -1,0 +1,24 @@
+@import "tailwindcss";
+@import "tailwindcss/preflight";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:root {
+  --bg-primary: #FFFFFF;
+  --text-primary: #1A1A1A;
+  --surface-card: #F5F5F5;
+  --brand-accent: #6200EE;
+}
+
+[data-theme='dark'] {
+  --bg-primary: #121212;
+  --text-primary: #E0E0E0;
+  --surface-card: #1E1E1E;
+  --brand-accent: #BB86FC;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s, color 0.3s;
+}
