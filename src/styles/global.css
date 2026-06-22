@@ -1,24 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
-@import "tailwindcss/preflight";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
 
+/* ربط أسامي الكلاسات بالـ CSS Variables مباشرة */
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-background: var(--bg-app);
+  --color-surface: var(--bg-app);
+  --color-surface-container-low: var(--bg-card);
+  --color-surface-container-high: var(--bg-hover);
+  
+  --color-primary: var(--primary-color);
+  --color-primary-container: var(--primary-container-color);
+  --color-tertiary: #4edea3;
+  --color-on-surface: var(--text-color);
+  --color-on-surface-variant: var(--text-variant);
+  --color-outline-variant: var(--border-color);
+}
+
+/* 1. قيم الألوان في الـ Light Mode (موف فاتح راقي ومتناسق) */
 :root {
-  --bg-primary: #FFFFFF;
-  --text-primary: #1A1A1A;
-  --surface-card: #F5F5F5;
-  --brand-accent: #6200EE;
+  --bg-app: #F3F0FF;                  /* خلفية الأبليكيشن: موف فاتح هادي ومريح جداً */
+  --bg-card: #FFFFFF;                 /* خلفية الكروت: أبيض ناصع عشان ينطق فوق الموف */
+  --bg-hover: #EBE5FF;                /* لون الـ Hover عند التنقل: درجة موف أعمق سنة */
+  
+  --primary-color: #5643FA;           /* اللون البنفسجي الأساسي للنصوص والرموز */
+  --primary-container-color: #5643FA; /* لون الأزرار النشطة */
+  --text-color: #1A153B;              /* لون الكلام: كحلي داكن مائل للموف عشان يتناسق مع الخلفية */
+  --text-variant: #6E6893;            /* لون الكلام الفرعي: موف رمادي متوسط */
+  --border-color: #E4DCFF;            /* البوردر والخطوط الفاصلة: موف خفيف جداً */
 }
 
+/* 2. قيم الألوان في الـ Dark Mode (نفس درجاتك بالظبط) */
 [data-theme='dark'] {
-  --bg-primary: #121212;
-  --text-primary: #E0E0E0;
-  --surface-card: #1E1E1E;
-  --brand-accent: #BB86FC;
+  --bg-app: #0b1326;
+  --bg-card: #131b2e;
+  --bg-hover: #222a3d;
+  
+  --primary-color: #c3c0ff;
+  --primary-container-color: #4f46e5;
+  --text-color: #dae2fd;
+  --text-variant: #c7c4d8;
+  --border-color: #2d3449;
 }
 
-body {
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  transition: background-color 0.3s, color 0.3s;
+@layer base {
+  body {
+    @apply bg-background text-on-surface antialiased;
+  }
+}
+
+.glass-card {
+  background: rgba(45, 52, 73, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.text-glow {
+  text-shadow: 0 0 15px rgba(195, 192, 255, 0.5);
+}
+
+.podium-gradient {
+  background: linear-gradient(180deg, rgba(79, 70, 229, 0.1) 0%, rgba(79, 70, 229, 0) 100%);
 }
