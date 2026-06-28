@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Level Up – Global Leaderboard for Kinetic Scholars. Track your XP, rankings, and badges."
+    />
+    <meta name="theme-color" content="#0a0d18" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- DNS prefetch for external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://i.pravatar.cc" />
+
+    <!--
+      Two fonts to match the design image:
+      • Outfit      → body, nav, cards (clean modern sans-serif)
+      • Space Grotesk → heading display text (matches the bold italic title style)
+    -->
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@700;800&display=swap"
+      onload="this.rel = 'stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@700;800&display=swap"
+      />
+    </noscript>
+
+    <title>Level Up – Global Leaderboard</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
