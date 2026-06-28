@@ -1,0 +1,214 @@
+.app-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ========================
+   SIDEBAR
+   ======================== */
+.sidebar {
+  width: 240px;
+  background-color: var(--bg-primary);
+  border-right: 1px solid var(--border-color);
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 200;
+}
+
+@media (max-width: 960px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transform: translateX(-100%);
+    box-shadow: 4px 0 32px rgba(0, 0, 0, 0.6);
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+}
+
+/* ========================
+   MAIN CONTENT
+   ======================== */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.scrollable-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--spacing-xl) var(--spacing-xl) 120px;
+  animation: fadeIn 0.4s ease;
+}
+
+/* ========================
+   DASHBOARD GRID
+   Desktop: 2 columns
+   ======================== */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 330px;
+  gap: var(--spacing-xl);
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.left-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  min-width: 0;
+}
+
+.right-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  min-width: 0;
+}
+
+/* ========================
+   BREAKPOINTS
+   ======================== */
+
+/* Tablet landscape ~1100px */
+@media (max-width: 1100px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr 290px;
+    gap: var(--spacing-lg);
+  }
+}
+
+/* Tablet portrait ~960px — sidebar becomes drawer */
+@media (max-width: 960px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr 280px;
+    gap: var(--spacing-lg);
+  }
+  .scrollable-content {
+    padding: var(--spacing-lg) var(--spacing-lg) 120px;
+  }
+}
+
+/* Small tablet ~768px — single column */
+@media (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+  .right-column {
+    /* On mobile put XP Boost below ranking */
+    order: 3;
+  }
+  .scrollable-content {
+    padding: var(--spacing-md) var(--spacing-md) 130px;
+  }
+}
+
+/* Mobile ~480px */
+@media (max-width: 480px) {
+  .scrollable-content {
+    padding: 12px 12px 140px;
+  }
+}
+
+/* ========================
+   SIDEBAR OVERLAY
+   ======================== */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 150;
+  animation: fadeIn 0.25s ease;
+}
+
+@media (max-width: 960px) {
+  .sidebar-overlay.visible {
+    display: block;
+  }
+}
+
+/* ========================
+   SHARED UTILITIES
+   ======================== */
+.section-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  letter-spacing: -0.2px;
+}
+
+/* ========================
+   PERFORMANCE HELPERS
+   ======================== */
+
+/* content-visibility: auto tells the browser to skip layout+paint
+   for off-screen content, then restore it as the user scrolls near */
+.defer-render {
+  content-visibility: auto;
+  /* Reserve vertical space so scroll bar doesn't jump (prevents CLS) */
+  contain-intrinsic-size: 0 800px;
+}
+
+/* CSS containment: the browser knows layout/paint changes inside
+   these elements don't affect anything outside → faster repaints */
+.left-column,
+.right-column {
+  contain: layout style;
+}
+
+/* GPU-composite-only animations: moved to their own layer */
+.podium-card,
+.boost-card,
+.table-row,
+.nav-link {
+  will-change: transform;
+}
+
+/* After animation completes, stop occupying a compositor layer */
+.podium-card:not(:hover),
+.boost-card:not(:hover),
+.nav-link:not(:hover) {
+  will-change: auto;
+}
+
+/* ========================
+   SKELETON LOADERS
+   ======================== */
+.page-skeleton {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-primary);
+  z-index: 999;
+}
+
+.section-skeleton {
+  border-radius: var(--radius-lg);
+  background: linear-gradient(
+    90deg,
+    var(--bg-secondary) 25%,
+    var(--bg-tertiary) 50%,
+    var(--bg-secondary) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease infinite;
+  height: 220px;
+  width: 100%;
+}

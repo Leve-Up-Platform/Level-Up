@@ -1,0 +1,160 @@
+/* ========================
+   LOGO
+   ======================== */
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-xl);
+  padding: 0 var(--spacing-sm);
+}
+
+.logo-text-block {
+  display: flex;
+  flex-direction: column;
+}
+
+/* "Level Up" — purple, bold, italic — exactly like the image */
+.logo-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  font-style: italic;
+  color: #8b5cf6;
+  line-height: 1;
+  margin-bottom: 4px;
+  letter-spacing: -0.5px;
+}
+
+.logo-subtitle {
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+
+/* ========================
+   MOBILE CLOSE BUTTON
+   ======================== */
+.close-sidebar-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.close-sidebar-btn:hover {
+  color: var(--text-primary);
+  background: var(--bg-hover);
+}
+
+@media (max-width: 960px) {
+  .close-sidebar-btn { display: flex; }
+}
+
+/* ========================
+   NAV
+   ======================== */
+.nav-menu { flex: 1; }
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.nav-list li {
+  animation: fadeInUp 0.4s ease both;
+}
+
+/* Base link */
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  text-decoration: none;
+  color: var(--text-secondary);    /* #8e95ad — matches image */
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  font-size: 0.92rem;
+  transition: var(--transition);
+  position: relative;
+}
+
+/* Hover */
+.nav-link:hover {
+  background-color: var(--bg-hover);   /* #1e2540 */
+  color: var(--text-primary);
+}
+
+/* Active — purple-tinted card like the image */
+.nav-link.active {
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.18) 0%,
+    rgba(139, 92, 246, 0.06) 100%
+  );
+  color: var(--text-primary);
+  border-left: 3px solid #8b5cf6;
+  padding-left: 9px;                /* compensate for border width */
+}
+
+/* Icon wrapper */
+.nav-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.nav-link.active .nav-icon-wrap {
+  background: rgba(139, 92, 246, 0.2);
+}
+
+/* Icon color */
+.nav-icon {
+  color: var(--text-muted);
+  transition: var(--transition);
+}
+
+.nav-link:hover .nav-icon,
+.nav-link.active .nav-icon {
+  color: #8b5cf6;
+}
+
+/* Active indicator dot */
+.active-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #8b5cf6;
+  margin-left: auto;
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.7);
+  animation: pulse-glow 2s ease infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(139, 92, 246, 0.5); }
+  50%       { box-shadow: 0 0 16px rgba(139, 92, 246, 0.9); }
+}
+
+/* ========================
+   BOTTOM NAV
+   ======================== */
+.sidebar-bottom {
+  margin-top: auto;
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--border-color);
+}

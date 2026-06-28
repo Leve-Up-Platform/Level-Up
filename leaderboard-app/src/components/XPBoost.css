@@ -1,0 +1,176 @@
+.xp-boost-section {
+  display: flex;
+  flex-direction: column;
+  animation: slideInRight 0.6s ease 0.2s both;
+}
+
+.boost-cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.boost-card {
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  cursor: pointer;
+  animation: fadeInUp 0.5s ease both;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.boost-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: var(--shadow-card);
+}
+
+.boost-icon-wrapper {
+  background-color: var(--bg-tertiary);
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+.boost-card:hover .boost-icon-wrapper {
+  transform: scale(1.1);
+}
+
+.green-icon-bg  { background-color: var(--accent-green-dim); }
+.purple-icon-bg { background-color: var(--accent-purple-dim); }
+
+.boost-icon { color: var(--text-primary); }
+.green-icon-bg  .boost-icon { color: var(--accent-green); }
+.purple-icon-bg .boost-icon { color: var(--accent-purple); }
+
+.boost-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.boost-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.boost-desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.boost-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.xp-pill {
+  background-color: var(--bg-tertiary);
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.5px;
+}
+
+.green-pill  { background-color: var(--accent-green-dim);  color: var(--accent-green); }
+.purple-pill { background-color: var(--accent-purple-dim); color: var(--accent-purple); }
+
+.arrow-icon {
+  color: var(--text-muted);
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.boost-card:hover .arrow-icon {
+  transform: translateX(5px);
+  color: var(--text-primary);
+}
+
+.highlight-border { border-left: 3px solid var(--accent-green); }
+.streak-card      { border-left: 3px solid var(--accent-purple); }
+
+/* Badge Gallery Card */
+.badge-gallery-card {
+  padding: 0;
+}
+
+.gallery-inner {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.gallery-award {
+  color: var(--accent-green);
+  animation: float 3s ease-in-out infinite;
+}
+
+.gallery-preview {
+  display: flex;
+  gap: 12px;
+  margin: 12px 0 18px;
+}
+
+.gallery-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  border: 1px solid var(--border-color);
+  transition: transform 0.25s ease;
+}
+
+.gallery-badge:hover { transform: scale(1.2); }
+
+.badge-0 { background-color: var(--accent-green-dim);  color: var(--accent-green); }
+.badge-1 { background-color: var(--accent-purple-dim); color: var(--accent-purple); }
+.badge-2 { background-color: rgba(59, 130, 246, 0.15); color: #60a5fa; }
+.badge-3 { background-color: var(--bg-tertiary); opacity: 0.5; }
+
+.view-badges-btn {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.view-badges-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 850px) {
+  .xp-boost-section { animation: fadeInUp 0.6s ease 0.2s both; }
+}
