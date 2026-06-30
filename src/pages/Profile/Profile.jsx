@@ -1,7 +1,8 @@
-export default function Profile() {
+
+const Profile = () => {
   return (
-    <div className="text-on-surface">
-      � Profile Page (Under Construction)
-    </div>
-  );
+    <div>Profile</div>
+  )
 }
+
+export default Profile
