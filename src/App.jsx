@@ -1,23 +1,31 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+// src/App.jsx
+import { AuthProvider } from "./context/AuthContext";
 import { ThemeProvider } from "./context/ThemeContext";
-import MainLayout from "./components/navigation/MainRoutes";
-import Login from "./pages/Login/Login";
+import ProtectedRoute from "./components/common/ProtectedRoute";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LandingPage from "./pages/Landing/LandingPage";
+import Login from "./pages/Login/Login";
+import MainLayout from "./components/navigation/MainRoutes";
 
 function App() {
   return (
     <ThemeProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          {/* صفحة اللوجن لوحدها بدون Sidebar */}
-          <Route path="/login" element={<Login />} />
-
-          {/* باقي الصفحات فيها Layout */}
-          <Route path="/*" element={<MainLayout />} />
-        </Routes>
-      </BrowserRouter>
+      <AuthProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/login" element={<Login />} />
+            <Route
+              path="/*"
+              element={
+                <ProtectedRoute>
+                  <MainLayout />
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
     </ThemeProvider>
   );
 }
