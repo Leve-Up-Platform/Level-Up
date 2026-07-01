@@ -1,7 +1,7 @@
 // src/pages/Login/Login.jsx
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../context/";
+import { useAuth } from "../../context/AuthContext";
 
 const Login = () => {
   const { login, loginWithGoogle, user } = useAuth();
