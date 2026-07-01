@@ -26,7 +26,7 @@ export default function ProjectCard({ p }) {
 
   return (
     <Card className="p-0 rounded-2xl overflow-hidden border-outline-variant bg-surface-container-low hover:border-primary-container/50 transition-colors flex flex-col">
-      <div className="relative h-[175px] overflow-hidden">
+      <div className="relative h-43.75 overflow-hidden">
         <img src={p.image} alt={p.title} className="w-full h-full object-cover" />
         {p.featured && (
           <span className="absolute bottom-3 left-3 bg-tertiary text-background text-[10px] font-extrabold tracking-widest px-2.5 py-1 rounded-full">

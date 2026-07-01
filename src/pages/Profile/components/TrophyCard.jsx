@@ -4,9 +4,9 @@ import Card from "../../components/common/Card";
 export default function TrophyCard({ t }) {
   const IconComp = t.Icon;
   return (
-    <Card className={`p-4 flex flex-col items-center gap-3 transition-transform duration-150 border-outline-variant bg-surface-container-low !rounded-2xl ${t.locked ? 'opacity-50 grayscale cursor-default' : 'hover:scale-105 cursor-pointer'}`}>
+    <Card className={`p-4 flex flex-col items-center gap-3 transition-transform duration-150 border-outline-variant bg-surface-container-low rounded-2xl ${t.locked ? 'opacity-50 grayscale cursor-default' : 'hover:scale-105 cursor-pointer'}`}>
       <div 
-        className="w-[52px] h-[52px] rounded-xl flex items-center justify-center"
+        className="w-13 h-13 rounded-xl flex items-center justify-center"
         style={{ background: t.iconBg }}
       >
         {t.locked ? <Lock size={22} className="text-on-surface-variant" /> : <IconComp />}

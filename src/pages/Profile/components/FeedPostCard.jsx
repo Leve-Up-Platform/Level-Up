@@ -20,7 +20,7 @@ export default function FeedPostCard({ post }) {
           )}
           {post.image && (
             <div className="mt-2.5 rounded-lg overflow-hidden border border-outline-variant">
-              <img src={post.image} alt="preview" className="w-full h-[110px] object-cover" />
+              <img src={post.image} alt="preview" className="w-full h-27.5 object-cover" />
             </div>
           )}
           <div className="flex gap-4 mt-2.5">

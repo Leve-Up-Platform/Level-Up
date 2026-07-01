@@ -2,13 +2,13 @@ import { useState } from "react";
 import Card from "../../components/common/Card";
 
 // استدعاء البيانات
-import { trophies, projects, feedPosts } from "./profileData"; 
+import { trophies, projects, feedPosts } from "./data/profiledata"; 
 
 // استدعاء المكونات
-import HeroSection from "./HeroSection";
-import TrophyCard from "./TrophyCard";
-import ProjectCard from "./ProjectCard";
-import FeedPostCard from "./FeedPostCard";
+import HeroSection from "./components/HeroSection";
+import TrophyCard from "./components/TrophyCard";
+import ProjectCard from "./components/ProjectCard";
+import FeedPostCard from "./components/FeedPostCard";
 
 export default function ProfilePage() {
   const [activeTab, setActiveTab] = useState("portfolio");
@@ -56,7 +56,7 @@ export default function ProfilePage() {
           )}
 
           {activeTab === "feed" && (
-            <Card className="!bg-surface-container-low !border-outline-variant !p-5">
+            <Card className="bg-surface-container-low border-outline-variant p-5">
               {feedPosts.map(post => <FeedPostCard key={post.id} post={post} />)}
             </Card>
           )}
@@ -71,7 +71,7 @@ export default function ProfilePage() {
                 View All
               </button>
             </div>
-            <Card className="!bg-surface-container-low !border-outline-variant !p-5">
+            <Card className="bg-surface-container-low border-outline-variant p-5">
               {feedPosts.map(post => <FeedPostCard key={post.id} post={post} />)}
             </Card>
           </div>
